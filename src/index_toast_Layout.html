@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>网格系统</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --font-size: 14px;
+      --button-color: #999;
+      --border-color: #999;
+      --button-height: 32px;
+      --button-bg: #fff;
+      --button-active-bg: #eee;
+      --button-active-border: pink;
+      --border-radius: 4px;
+      --color: #333;
+      --border-color-active: #333;
+    }
+
+    #app {
+      margin: 0 auto;
+      margin-top: 20px;
+      width: 1000px;
+    }
+    h1{
+      text-align: center;
+    }
+    .header,.footer{
+      height: 50px;
+      background: #f83;
+    }
+    .slider{
+      width: 200px;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="addToast"> 点击出现Toast </button>
+    <h1>网格系统</h1>
+    <g-row gutter="20">
+      <g-col span=24 
+      :ipad="{span: 4}"
+      :pc="{span: 2}">111</g-col>
+      <g-col span=24 
+      :ipad="{span: 8}"
+      :pc="{span: 4}">111</g-col>
+      <g-col span=24 
+      :ipad="{span: 12}"
+      :pc="{span: 18}">111</g-col>
+    </g-row>
+    <g-row>
+      <g-col>111</g-col>
+      <g-col>222</g-col>
+      <g-col>222</g-col>
+    </g-row>
+    <g-row>
+      <g-col span=2>111</g-col>
+      <g-col span=22>222</g-col>
+    </g-row>
+    <h1>Layout布局</h1>
+    <g-layout style="height: 300px;">
+      <g-layout-header class="header">header</g-layout-header>
+      <g-layout-content>content</g-layout-content>
+      <g-layout-footer class="footer">footer</g-layout-footer>
+    </g-layout>
+    <hr>
+    <g-layout style="height: 300px;">
+      <g-layout-header class="header">header</g-layout-header>
+      <g-layout>
+        <g-layout-slider class="slider">slider</g-layout-slider>
+        <g-layout-content>content</g-layout-content>
+      </g-layout>
+      <g-layout-footer class="footer">footer</g-layout-footer>
+    </g-layout>
+    <hr>
+    <g-layout style="height: 300px;">
+      <g-layout-header class="header">header</g-layout-header>
+      <g-layout>
+        <g-layout-content>content</g-layout-content>
+        <g-layout-slider class="slider" position="right">slider</g-layout-slider>
+      </g-layout>
+      <g-layout-footer class="footer">footer</g-layout-footer>
+    </g-layout>
+    <hr>
+    <g-layout style="height: 300px;">
+      <g-layout-slider class="slider">
+        slider
+      </g-layout-slider>
+      <g-layout>
+        <g-layout-header class="header">header</g-layout-header>
+        <g-layout-content>content</g-layout-content>
+        <g-layout-footer class="footer">footer</g-layout-footer>
+      </g-layout>
+    </g-layout>
+  </div>
+  <script src="./main.js"></script>
+</body>
+
+</html>

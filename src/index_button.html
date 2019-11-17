@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <style>
+      *{margin: 0;padding: 0;box-sizing: border-box;}
+      :root{
+        --font-size: 14px;
+        --button-color: #999;
+        --border-color: #999;
+        --button-height: 32px;
+        --button-bg: #fff;
+        --button-active-bg: #eee;
+        --button-active-border: pink;
+        --border-radius: 4px;
+        --color: #333;
+        --border-color-active: #333;
+      }
+      #app{
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 1000px;
+      }
+      .icon{
+        width: 1em;
+        height: 1em;
+      }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <g-button>
+      按钮
+    </g-button>
+    <g-button icon="download">
+      按钮
+    </g-button>
+    <g-button icon="good_line" icon-position="right">
+      按钮
+    </g-button>
+    <g-button icon="16" icon-position="right">
+      按钮
+    </g-button>
+    <g-button icon="setting" icon-position="right" :loading="loadFlag" @stopload="loadFlag = false;">
+      按钮
+    </g-button>
+    <g-button-group>
+      <g-button icon="left">
+        按钮
+      </g-button>
+      <g-button icon="download" icon-position="right">
+        按钮
+      </g-button>
+      <g-button icon="left1" icon-position="right">
+        按钮
+      </g-button>
+    </g-button-group>
+  </div>  
+  <script src="//at.alicdn.com/t/font_1467021_rwjyhtsyek.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

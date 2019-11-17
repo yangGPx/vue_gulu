@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tabs标签页</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <g-tabs :selected="selecteTab" @update.selected="selecteTab = $event"> -->
+    <g-tabs :selected.sync="selecteTab">
+      <g-tabs-head>
+        <template slot="action">
+          <button>设置</button>
+        </template>
+        <g-tabs-item name="nav1">导航111111111</g-tabs-item>
+        <g-tabs-item name="nav2">导航2</g-tabs-item>
+        <g-tabs-item name="nav3">导航3</g-tabs-item>
+      </g-tabs-head>
+      <g-tabs-body>
+        <g-tabs-pane name="nav1">这是第一段文字</g-tabs-pane>
+        <g-tabs-pane name="nav2">这是第二段文字</g-tabs-pane>
+        <g-tabs-pane name="nav3">这是第三段文字</g-tabs-pane>
+      </g-tabs-body>
+    </g-tabs>
+  </div>
+  <script src="./main.js"></script>
+</body>
+</html>
