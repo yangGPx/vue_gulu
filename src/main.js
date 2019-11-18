@@ -17,6 +17,8 @@ import TabsHeadItem from './components/tabs/tabsHeadItem.vue';
 import TabsBodyPane from './components/tabs/tabsBodyPane.vue';
 import plugin from './components/ToastPlugin';
 import PopOver from './components/PopOver.vue';
+import Collapse from './components/collapse/Collapse.vue';
+import CollapseItem from './components/collapse/CollapseItem.vue';
 
 Vue.use(plugin);
 Vue.component('g-button', Button)
@@ -35,13 +37,16 @@ Vue.component('g-tabs-body', TabsBody)
 Vue.component('g-tabs-item', TabsHeadItem)
 Vue.component('g-tabs-pane', TabsBodyPane)
 Vue.component('g-popover', PopOver)
+Vue.component('g-collapse', Collapse)
+Vue.component('g-collapse-item', CollapseItem)
 
 let rm = new Vue({
     el: '#app',
     data:{
       loadFlag: true,
       msg: '根文件测试信息',
-      selecteTab: 'nav2'
+      selecteTab: 'nav2',
+      collapseDefault: 'title2'
     },
     created(){
       // this.addToast();

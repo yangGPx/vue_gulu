@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>popOver</title>
+  <style>
+    *{
+      margin: 0;padding: 0;box-sizing: border-box;
+    }
+    :root{
+        --font-size: 14px;
+        --button-color: #999;
+        --border-color: #999;
+        --button-height: 32px;
+        --button-bg: #fff;
+        --button-active-bg: #eee;
+        --button-active-border: pink;
+        --border-radius: 4px;
+        --color: #333;
+        --border-color-active: #333;
+      }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <g-popover position="top" trigger="hover">
+      <template slot="content">
+        真正的猛士,敢于面对惨淡的人生,敢于面对淋漓地鲜血.真正的猛士,敢于面对惨淡的人生,敢于面对淋漓地鲜血真正的猛士,敢于面对惨淡的人生,敢于面对淋漓地鲜血
+      </template>
+      <g-button icon="setting">按钮</g-button>
+    </g-popover>
+    <g-popover position="right">
+      <template slot="content">
+        我不想输,我真的不想输
+      </template>
+      <g-button>按钮</g-button>
+    </g-popover>
+    <g-popover position="bottom">
+      <template slot="content">
+        content
+      </template>
+      <g-button>按钮</g-button>
+    </g-popover>
+    <g-popover position="left">
+      <template slot="content">
+        content
+      </template>
+      <g-button>按钮</g-button>
+    </g-popover>
+    <div id="test"></div>
+  </div>
+  <script src="//at.alicdn.com/t/font_1467021_rwjyhtsyek.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
