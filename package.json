@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel ./src/index.html --no-cache"
+    "start": "parcel ./src/index.html --no-cache",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +22,8 @@
     "chai": "^4.2.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.23.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.2.0"
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"
