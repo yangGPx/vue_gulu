@@ -21,13 +21,25 @@ export default {
     }
   },
   created() {
-    this.eventBus.single = this.single
-    this.eventBus.$on('update.selected', (name) => {
-      this.$emit('update.default', name);
+    this.eventBus.$on('update.selected', (names) => {
+      this.itemList = names;
+    })
+    this.eventBus.$on('update.removeSelected', (name) => {
+      this.itemList.pop(name);
+      this.eventBus.$emit('update.selected', this.itemList);
+    })
+    this.eventBus.$on('update.addSelected', (name) => {
+      if (this.single) {
+        this.itemList = [name];
+      } else {
+        this.itemList.push(name);
+      }
+      this.eventBus.$emit('update.selected', this.itemList);
     })
   },
   mounted(){
-    this.eventBus.$emit('update.selected', this.default)
+    this.itemList.push(this.default);
+    this.eventBus.$emit('update.selected', this.itemList);
   },
   provide(){
     return {

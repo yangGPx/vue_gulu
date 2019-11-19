@@ -33,15 +33,24 @@ export default {
   },
   methods: {
     xxx(){
-      this.showFlag = !this.showFlag;
-      if (this.eventBus.single) {
-        this.eventBus.$emit('update.selected', this.name);
+      if (this.showFlag) {
+        this.eventBus.$emit('update.removeSelected', this.name);
+        this.close();
+      } else {
+        this.eventBus.$emit('update.addSelected', this.name)
+        this.open();
       }
+    },
+    open(){
+      this.showFlag = true;
+    },
+    close() {
+      this.showFlag = false;
     }
   },
   created() {
-    this.eventBus.$on('update.selected', (name) => {
-      this.showFlag = this.name === name;
+    this.eventBus.$on('update.selected', (names) => {
+      this.showFlag = names.indexOf(this.name) > -1;
     })
   },
 }
@@ -54,6 +63,7 @@ export default {
     }
     & .title{
       cursor: pointer;
+      background: #f5f5f5;
     }
     &:first-child{
       .title{
