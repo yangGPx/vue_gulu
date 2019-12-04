@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  name: 'CollapseItem',
+  name: 'GuluCollapseItem',
   inject: ['eventBus'],
   data(){
     return {

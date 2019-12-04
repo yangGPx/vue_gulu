@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name:'guluGridTabsBodyPane',
+  name:'GuluTabsBodyPane',
   inject:['eventBus'],
   data(){
     return {

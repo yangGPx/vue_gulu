@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name:'gridCol',
+  name:'GuluGridRow',
   props:{
     gutter:{
       type:[Number, String]

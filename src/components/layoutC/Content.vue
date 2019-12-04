@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name:'LayoutContent',
+  name:'GuluLayoutContent',
 }
 </script>
 <style lang="scss" scoped>

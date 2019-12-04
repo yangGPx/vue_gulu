@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name:'guluGridTabsHeadItem',
+  name:'GuluTabsHeadItem',
   inject:['eventBus'],
   data() {
     return {

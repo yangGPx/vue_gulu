@@ -14,6 +14,7 @@
 <script>
 import Vue from 'vue'
 export default {
+  name: 'GuluToast',
   props:{
     autoClose:{
       type: Boolean,

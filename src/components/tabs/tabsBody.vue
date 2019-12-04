@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name:'guluGridTabsBody'
+  name:'GuluTabsBody'
 }
 </script>
 <style lang="scss">

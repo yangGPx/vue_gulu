@@ -13,7 +13,7 @@ const validator = (value) => {
   })
 }
 export default{
-  name: 'gridRow',
+  name: 'GuluGridCol',
   data(){
     return{
       gutter:0

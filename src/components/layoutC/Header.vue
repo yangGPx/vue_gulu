@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name:'LayoutHeader',
+  name:'GuluLayoutHeader',
 }
 </script>
 <style lang="scss">

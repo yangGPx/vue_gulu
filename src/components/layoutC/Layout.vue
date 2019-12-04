@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name:'GridLayout',
+  name:'GuluLayout',
   data(){
     return {
       rowClass:{

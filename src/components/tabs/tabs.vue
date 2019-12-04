@@ -6,7 +6,7 @@
 <script>
 import Vue from 'vue'
 export default {
-  name:'guluGridTabs',
+  name:'GuluTabs',
   data(){
     return {
       eventBus: new Vue(),

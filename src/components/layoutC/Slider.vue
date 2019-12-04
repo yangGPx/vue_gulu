@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name:'LayoutSlider',
+  name:'GuluLayoutSlider',
   data(){
     return {
       show: true
