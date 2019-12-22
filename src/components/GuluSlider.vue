@@ -59,21 +59,22 @@ export default {
         item.reverse = r;
         this.$nextTick(() => {
           item.selected = this.names[this.activeIndex];
-        })
+        });
       });
     },
-    change() {
+    playAutomatically() {
       if (this.timerId) return;
       let run = () => {
         let index = this.names.indexOf(this.selected);
         if (this.reverse) {
           if (index  <= 0 ) { index = this.names.length; }
-          this.$emit('update:selected', this.names[index - 1]);
+          index -= 1;
         } else {
           if (index  >= this.names.length -1 ) { index = -1; }
-          this.$emit('update:selected', this.names[index + 1]);
+          index += 1;
         }
-        this.activeIndex = this.names.indexOf(this.selected);
+        this.$emit('update:selected', this.names[index]);
+        this.changeSelected(index);
         this.timerId = setTimeout(() => { run() },2000);
       }
       run();
@@ -83,7 +84,7 @@ export default {
       this.timerId = undefined;
     },
     play() {
-      this.change();
+      this.playAutomatically();
     },
     changeSelected(n) {
       this.oldIndex = this.activeIndex;
@@ -93,7 +94,6 @@ export default {
       if (n <= -1) {
         n = this.dirctivesCount - 1;
       }
-      console.log(n)
       this.activeIndex = n;
     },
     touchStart(e) {
@@ -110,10 +110,14 @@ export default {
       if (rate > 2) {
         if (distanceX > 10) {
           this.changeSelected(this.activeIndex - 1)
-        } else if(distanceX < -10) {
+        } 
+        if(distanceX < -10) {
           this.changeSelected(this.activeIndex + 1)
         }
-      }
+      } 
+      this.$nextTick(() => {
+        this.play();
+      })
     },
   },
   computed: {
@@ -121,12 +125,14 @@ export default {
       return this.$children.map( vm => vm.name );
     }
   },
-  updated() {
-    this.updateChildSelected();
+  watch: {
+    activeIndex(val, oldVal) {
+      this.updateChildSelected();
+    }
   },
   mounted() {
     this.updateChildSelected();
-    this.change();
+    this.playAutomatically();
     this.activeIndex = this.names.indexOf(this.selected);
     this.dirctivesCount =  this.$children.length;
   },
