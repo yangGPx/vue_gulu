@@ -42,7 +42,7 @@ export default {
 }
 </script>
 <style lang="scss" scpoed>
-@import '../assets/css/common.scss';
+@import '~@/assets/css/common.scss';
 .gulu-cascader{
   margin: 100px;
   .info{

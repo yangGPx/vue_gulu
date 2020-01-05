@@ -7,6 +7,8 @@
   </div>
 </template>
 <script>
+import CascaderItem from './CascaderItem.vue';
+
 export default {
   name: 'GuluCascaderItem',
   props: {

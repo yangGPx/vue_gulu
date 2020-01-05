@@ -14,12 +14,8 @@
     </button>
 </template>
 <script>
-import GuluIcon from './GuluIcon.vue'
 export default {
     name: 'GuluButton',
-    components: {
-      GuluIcon
-    },
     data(){
         return{
         }
@@ -43,7 +39,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '../assets/css/common.scss';
+@import '~@/assets/css/common.scss';
   .g-button{
       font: inherit;
       height: $button-height;
