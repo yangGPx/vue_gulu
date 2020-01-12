@@ -1,35 +1,39 @@
 <template>
     <button class="g-button" :class="{[`icon-${iconPosition}`]: iconPosition}"
-     @click="$emit('stopload')">
+     @click="$emit('click')">
     <div class="content">
       <slot></slot>
     </div>
-    <GuluIcon :icon="icon"/>  
     <template  v-if="!loading">
-      <GuluIcon :icon="icon"/>  
+      <g-icon :icon="icon"/>  
     </template>
     <template v-else>
-      <GuluIcon icon="loading" class="icon-loading" />  
+      <g-icon icon="loading" class="icon-loading" />  
     </template>
     </button>
 </template>
 <script>
+import GIcon from '../GuluIcon.vue';
+
 export default {
     name: 'GuluButton',
+    components: {
+      GIcon,
+    },
     data(){
-        return{
-        }
+      return{
+      }
     },
     props: {
       icon:{
         type: String,
       },
       iconPosition:{
-          type: String,
-          default: 'left',
-          validator(value){
-            return value === 'left' || value === 'right';
-          }
+        type: String,
+        default: 'left',
+        validator(value){
+          return value === 'left' || value === 'right';
+        }
       },
       loading:{
         type: Boolean,
