@@ -1,0 +1,39 @@
+.gulu-table {
+  $grey: darken(gray, 15%);
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-bottom: 1px solid $grey;
+  width: 100%;
+  td, th{
+    text-align: left;
+    padding: 8px;
+  }
+  tr{
+    border-bottom: 1px solid $grey ;
+  }
+
+  &.border{
+    border: 1px solid $grey;
+    td, th{
+      border: 1px solid $grey;
+    }
+  }
+  &.compact{
+    td, th{
+      padding: 4px;
+    }
+  }
+  &.striped{
+    tbody{
+      &>tr:nth-child(odd) {
+        background: #fff;
+      }
+      &>tr:nth-child(even) {
+        background: lighten(grey, 10%);
+      }
+      &>tr:hover{
+        background: lightpink;
+      }
+    }
+  }
+}

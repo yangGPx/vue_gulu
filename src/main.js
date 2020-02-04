@@ -23,6 +23,7 @@ import Cascader from './components/cascader/Cascader.vue';
 import CascaderItem from './components/cascader/CascaderItem.vue';
 import Slider from './components/slider/GuluSlider.vue';
 import SliderItem from './components/slider/GuluSliderItem.vue';
+import GuluTable from './components/table/GuluTable.vue';
 
 Vue.use(plugin);
 Vue.component('g-button', Button)
@@ -47,6 +48,7 @@ Vue.component('g-cascader', Cascader)
 Vue.component('g-cascader-item', CascaderItem)
 Vue.component('g-slider', Slider)
 Vue.component('g-slider-item', SliderItem)
+Vue.component('g-table', GuluTable)
 
 new Vue({
   render: h => h(App),
