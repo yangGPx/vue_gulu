@@ -1,5 +1,6 @@
 <template>
   <div class="collapse">
+    {{ itemList }}
     <slot></slot>
   </div>
 </template>
@@ -10,7 +11,7 @@ export default {
   data(){
     return {
       eventBus: new Vue(),
-      itemList: []
+      itemList: [],
     }
   },
   props: {
@@ -18,14 +19,14 @@ export default {
     single: {
       type: Boolean,
       default: false
-    }
+    },
   },
   created() {
     this.eventBus.$on('update.selected', (names) => {
       this.itemList = names;
     })
     this.eventBus.$on('update.removeSelected', (name) => {
-      this.itemList.pop(name);
+      this.itemList.splice(this.itemList.indexOf(name), 1);
       this.eventBus.$emit('update.selected', this.itemList);
     })
     this.eventBus.$on('update.addSelected', (name) => {
@@ -38,7 +39,9 @@ export default {
     })
   },
   mounted(){
-    this.itemList.push(this.default);
+    if (this.default) {
+      this.itemList.push(this.default);
+    }
     this.eventBus.$emit('update.selected', this.itemList);
   },
   provide(){
@@ -48,7 +51,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-  .collapse{
-  }
-</style>
