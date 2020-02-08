@@ -19,7 +19,10 @@ export default {
   },
   mounted(){
     this.$children.map( item => {
-      item.gutter = this.gutter;
+      // 这里加一个验证:是否 g-col组件
+      if (item.$options.name === 'GuluGridCol') {
+        item.gutter = this.gutter;
+      }
     });
   }
 }
@@ -29,5 +32,6 @@ export default {
     display: flex;
     background: #eee;
     flex-wrap: wrap;
+    width: 100%;
   }
 </style>

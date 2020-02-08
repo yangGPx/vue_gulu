@@ -21,14 +21,14 @@ export default{
   },
   props:{
     span:{
-      type: [String, Number]
+      type: [String, Number],
+      validator(value) {
+        const val = parseInt(value, 10);
+        return val > 0 && val < 25;
+      }
     },
     offset: {
       type: [String, Number]
-    },
-    phone: {
-      type: Object,
-      validator
     },
     ipad: {
       type: Object,
@@ -45,12 +45,11 @@ export default{
       return gutter && {paddingLeft: `${gutter/2}px`,paddingRight:`${gutter/2}px` }
     },
     colClass() {
-      let {span, offset, phone, ipad, pc} = this;
+      let {span, offset, ipad, pc} = this;
       return [
         'grid-col', 
         span && `col-${span}`, 
         offset && `offset-${offset}`,
-        ...[phone && `phone-col-${phone.span}`],
         ...[ipad && `ipad-col-${ipad.span}`],
         ...[pc && `pc-col-${pc.span}`]
       ]
