@@ -10,6 +10,9 @@
           <th v-for="(column, index) in columns" :key="index">
             {{ column.text }}
           </th>
+          <th>
+            删除
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -23,9 +26,15 @@
           <td v-for="(column, index) in columns" :key="index">
             {{ item[column.field] }}
           </td>
+          <td>
+            <g-button @click="deleteItem(index)">删除</g-button>
+          </td>
         </tr>
       </tbody>
     </table>
+    <div class="gulu-table-loading" v-if="loading">
+      <g-icon icon="loading"></g-icon>
+    </div>
   </div>
 </template>
 <script>
@@ -67,16 +76,35 @@ export default {
     selectedItems: {
       type: Array,
       default: () => [],
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     }
   },
   computed: {
     allChecked() {
-      return this.selectedItems.length === this.data.length;
+      // 这样写可能有问题，不严谨，因为用了单向数据流和深拷贝，显示的数组和原数组不是同一个数组
+      // return this.selectedItems.length === this.data.length;
+      const source = this.data.map(i => i.id).sort();
+      const select = this.selectedItems.map(i => i.id).sort();
+      let equal = true;
+      if (source.length === select.length) {
+        for (let i = 0;i<source.length;i++) {
+          if (source[i] !== select[i]) {
+            equal = false;
+            break;
+          }
+        }
+      } else {
+        equal = false;
+      }
+      return equal;
     }
   },
   methods: {
     inSelectedItems(item) {
-      // 深拷贝之后的对象 和 原对象不一样 
+      // 序列化深拷贝之后的对象 和 原对象不一样 
       return this.selectedItems.filter(e => e.id === item.id).length > 0;
     },
     onChangeItem(item, index, e) {
@@ -99,6 +127,9 @@ export default {
       this.$emit('selectAll', selected ? this.data : []);
       this.$emit('update:selectedItems', selected ? this.data : []);
     },
+    deleteItem(index) {
+      this.data.splice(index, 1);
+    }
   },
   watch: {
     selectedItems(val) {

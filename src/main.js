@@ -24,6 +24,7 @@ import CascaderItem from './components/cascader/CascaderItem.vue';
 import Slider from './components/slider/GuluSlider.vue';
 import SliderItem from './components/slider/GuluSliderItem.vue';
 import GuluTable from './components/table/GuluTable.vue';
+import GuluUpload from './components/upload/GuluUpload.vue';
 
 Vue.use(plugin);
 Vue.component('g-button', Button)
@@ -49,6 +50,7 @@ Vue.component('g-cascader-item', CascaderItem)
 Vue.component('g-slider', Slider)
 Vue.component('g-slider-item', SliderItem)
 Vue.component('g-table', GuluTable)
+Vue.component('g-upload', GuluUpload)
 
 new Vue({
   render: h => h(App),

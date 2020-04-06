@@ -10,3 +10,6 @@ $button-active-border: pink;
 ul, li, ol {
   list-style: none;
 }
+@mixin  spin {
+  animation: spin 2s infinite linear ;
+}

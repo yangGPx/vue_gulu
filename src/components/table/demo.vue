@@ -8,9 +8,11 @@
       :compact="true"
       :selection="true"
       :selectedItems.sync="selectedItems"
+      :loading="loading"
       @selectAll="onSelectItems"
       @selectOne="x">
     </g-table>
+    <div @click="closeLoading">22222</div>
   </div>
 </template>
 <script>
@@ -32,6 +34,7 @@ export default {
         { id: 6, name: "叶青缇", score: 100 },
       ],
       selectedItems: [],
+      loading: true,
     }
   },
   methods: {
@@ -40,6 +43,9 @@ export default {
     },
     onSelectItems(val) {
       console.log('全选操作');
+    },
+    closeLoading() {
+      this.loading = false;
     }
   }
 }

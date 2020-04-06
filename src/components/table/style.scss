@@ -1,3 +1,7 @@
+@import '~@/assets/css/common.scss';
+.gulu-table-wrapper{
+  position: relative;
+}
 .gulu-table {
   $grey: darken(gray, 15%);
   border-collapse: collapse;
@@ -34,6 +38,18 @@
       &>tr:hover{
         background: lightpink;
       }
+    }
+  }
+  &-loading{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;height: 100%;
+    display: flex;justify-content: center;align-items: center;
+    background-color: rgba(255,255,255,0.8);
+    svg{
+      width: 50px;
+      height: 50px;
+      @include spin;
     }
   }
 }
