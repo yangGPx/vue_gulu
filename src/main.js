@@ -25,6 +25,7 @@ import Slider from './components/slider/GuluSlider.vue';
 import SliderItem from './components/slider/GuluSliderItem.vue';
 import GuluTable from './components/table/GuluTable.vue';
 import GuluUpload from './components/upload/GuluUpload.vue';
+import './assets/js/icon.js';
 
 Vue.use(plugin);
 Vue.component('g-button', Button)
